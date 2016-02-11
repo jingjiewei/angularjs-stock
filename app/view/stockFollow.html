@@ -1,0 +1,20 @@
+<div class="panel-body">
+    <div ng-repeat="follow in follows" >
+        <div class="col-xs-4 col-sm-3 col-md-2 tile_style" ng-class="bgColorChoose(follow)">
+            <div class="row">
+                <div class="col-xs-9"><a class="tile_name"
+                        href="#/Stock Price/{{follow.code.substring(1,follow.code.length)}}/b">{{follow.name}}</a>
+                </div>
+                <div  class="col-xs-3"><button class="btn close cardClose" ng-click="removeFollow(follow.code)">&times;</button></div>
+
+            </div>
+            <div class="row tile_price">
+                <div><h2>{{follow.percent|percentage:2}}</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5">{{follow.price|number:2}}</div>
+                <div class="col-xs-7">{{follow.updown|number:2}}</div>
+            </div>
+        </div>
+    </div>
+</div>

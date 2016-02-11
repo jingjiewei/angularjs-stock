@@ -1,0 +1,262 @@
+﻿<div class="panel-body">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 sellcolor" ng-show="wrong_code_flag">
+            <h2>Wrong Code Input !!!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+            <div class="row">
+                <div id="stock_name" class="col-xs-6"><h3>{{stock.name}}</h3></div>
+                <div id="stock_code" class="col-xs-3"><span>({{stock.symbol}}.{{stock.type}})</span></div>
+                <div class="col-xs-2" ng-show="canFollow">
+                <span
+                        class="follow_btn"><input type="button" class="btn btn-danger" value="Follow"
+                                                  ng-click="addFollow()"></span>
+                </div>
+                <div class="col-xs-2" ng-hide="canFollow">
+                <span
+                        class="follow_btn"><input type="button" class="btn btn-success" value="Un-Follow"
+                                                  ng-click="removeFollow()"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div id="stock_price" class="col-xs-6" ng-class="stockColor()">
+                    <span>{{stock.price|number:2}}</span>
+
+                </div>
+                <div class="col-xs-2">
+
+                    <span id="arrow" ng-class="stockColor()">{{stock.arrow}}</span>
+
+                </div>
+                <div class="col-xs-4" ng-class="stockColor()">
+                    <div class="row">
+                        <div class="col-xs-12">{{stock.percent|percentage:2}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">{{stock.updown}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-offset-3"><p>{{stock.update}}</p></div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-button" >
+                    <div class="btn-group" role="group" >
+                        <button class="btn btn-info " ng-click="chooseChartType('Timely')"
+                                ng-class="{active:isActive('Timely')}">Timely
+                        </button>
+                        <button class="btn btn-info" ng-click="chooseChartType('Daily')"
+                                ng-class="{active:isActive('Daily')}">Daily</button>
+                        <button class="btn btn-info" ng-click="chooseChartType('Weekly')"
+                                ng-class="{active:isActive('Weekly')}">Weekly</button>
+                        <button class="btn btn-info" ng-click="chooseChartType('Monthly')"
+                                ng-class="{active:isActive('Monthly')}">Monthly</button>
+                    </div>
+                </div>
+                <div class="panel-body panel-body-chart" ng-switch on="chartType">
+
+                    <div ng-switch-when="Daily" class="my-switch-animation">
+                        <img ng-src="http://image.sinajs.cn/newchart/daily/n/{{chartCode}}.gif"/>
+                    </div>
+                    <div ng-switch-when="Weekly" class="my-switch-animation">
+                        <img ng-src="http://image.sinajs.cn/newchart/weekly/n/{{chartCode}}.gif"/>
+                    </div>
+                    <div ng-switch-when="Monthly" class="my-switch-animation">
+                        <img ng-src="http://image.sinajs.cn/newchart/monthly/n/{{chartCode}}.gif"/>
+                    </div>
+                    <div ng-switch-when="Timely" class="my-switch-animation">
+                        <img ng-src="{{timelyPath}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="row">
+                <div class="col-xs-12 col-xs-offset-1">
+                    <table class="quote_table" ng-class="stockColor()">
+                        <tr>
+                            <td>Sell 5 </td>
+                            <td>{{stock.ask5}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.askvol5}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sell 4 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.ask4}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.askvol4}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sell 3 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.ask3}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.askvol3}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sell 2 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.ask2}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.askvol2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sell 1 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.ask1}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.askvol1}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div  class="col-xs-12 col-xs-offset-1">
+                    <table class="quote_table" ng-class="stockColor()">
+                        <tr>
+                            <td>Buy 1 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bid1}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bidvol1}}</td>
+                        </tr>
+                        <tr>
+                            <td>Buy 2 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bid2}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bidvol2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Buy 3 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bid3}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bidvol3}}</td>
+                        </tr>
+                        <tr>
+                            <td>Buy 4 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bid4}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bidvol4}}</td>
+                        </tr>
+                        <tr>
+                            <td>Buy 5 &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bid5}}&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                            <td>{{stock.bidvol5}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div ng-show="buySellShow">
+                        <div class="row">
+
+                            <div ng-show="showBuyButton" class="col-xs-2 col-xs-offset-1" >
+                                <button type="button" class="btn btn-danger" ng-click="buyStock()">Buy
+                                    Now</button>
+                            </div>
+                            <div ng-show="showSellButton" class="col-xs-2 sell_btn_col" >
+                                <button type="button" class="btn btn-success" ng-click="sellStock()">Sell
+                                    Now</button>
+                            </div>
+                            <div class="col-xs-7" ></div>
+                        </div>
+                    </div>
+                    <div ng-hide="buySellShow">
+                        <div ng-show="showBuyInfo">
+                            <form name="buyForm" novalidate ng-submit="buyForm.$valid && confirmBuyStock()">
+                                <div class="row">
+                                    <div class="col-xs-5 col-xs-offset-1 buy_sell_show mobile_div">
+                                        Available Fund: {{cash|currency:("￥")}}
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 col-xs-offset-1 buy_sell_show mobile_div">
+                                        Max Buy: {{stock_max_buy}}
+                                    </div>
+                                </div>
+                                <div class="row  buy_sell_show">
+                                    <div class="col-xs-2 col-xs-offset-1 amount_show">
+                                        Amount:
+                                    </div>
+                                    <div class="col-xs-3" >
+                                        <input type="number" name="buyAmount" class="form-control" placeholder=""
+                                               ng-model="stock_buy_amount" step="100" required hundred nolargerthan
+                                               max="{{stock_max_buy}}" />
+                                    </div>
+                                    <div ng-messages="buyForm.buyAmount.$error" class="errors amount_alert">
+                                        <span ng-message="required" class="sellcolor"
+                                              ng-show="buyForm.buyAmount.$error.required">
+                                           Required!
+                                        </span>
+                                        <span ng-message="hundred" class="sellcolor"
+                                              ng-show="buyForm.buyAmount.$dirty && buyForm.buyAmount.$error.hundred">
+                                           Must be a multiple of 100!
+                                        </span>
+                                        <span ng-message="nolargerthan" class="sellcolor"
+                                              ng-show="buyForm.buyAmount.$dirty && buyForm.buyAmount.$error.nolargerthan && !buyForm.buyAmount.$error.hundred">
+                                           You're not that rich!
+                                        </span>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-3 col-xs-offset-1">
+                                        <input type="submit" class="btn btn-danger"
+                                               ng-click="" value="Confirm">
+                                        </input>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div ng-show="showSellInfo">
+                            <form name="sellForm" novalidate ng-submit="sellForm.$valid && confirmSellStock()">
+                            <div class="row">
+                                <div class="col-xs-5 col-xs-offset-1 buy_sell_show mobile_div">
+                                    Available Fund: {{cash|currency:("￥")}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3 col-xs-offset-1 buy_sell_show mobile_div">
+                                    Max Sell: {{stock_max_sell}}
+                                </div>
+                            </div>
+                            <div class="row  buy_sell_show">
+                                <div class="col-xs-2 col-xs-offset-1 amount_show">
+                                    Amount:
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="number" name="sellAmount" class="form-control" placeholder=""
+                                           ng-model="stock_sell_amount" step="100" required hundred nolargerthan
+                                           max="{{stock_max_sell}}"/>
+                                </div>
+                                <div ng-messages="sellForm.sellAmount.$error" class="errors amount_alert">
+                                    <span ng-message="required" class="sellcolor"
+                                                     ng-show="sellForm.sellAmount.$error.required">
+                                           Required!
+                                        </span>
+                                    <span ng-message="hundred" class="sellcolor"
+                                          ng-show="sellForm.sellAmount.$dirty && sellForm.sellAmount.$error.hundred">
+                                           Must be a multiple of 100!
+                                        </span>
+                                    <span ng-message="nolargerthan" class="sellcolor"
+                                          ng-show="sellForm.sellAmount.$dirty && !sellForm.sellAmount.$error.hundred && sellForm.sellAmount.$error.nolargerthan">
+                                           Too much to sell!
+                                        </span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-3 col-xs-offset-1">
+                                    <input type="submit" class="btn btn-danger" value="Confirm"></input>
+                                </div>
+                            </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

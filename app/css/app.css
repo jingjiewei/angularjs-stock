@@ -1,0 +1,385 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#stock_name {
+    text-align: right;
+}
+#stock_price{
+    text-align: center;
+    font-size: 30px;
+}
+#stock_code{
+    font-size: 6px;
+    height:56px;
+    position:relative;
+}
+#stock_code span{
+    position:absolute;
+    left:0px;
+    bottom:10px;
+    padding:0px;
+    margin:0px
+}
+#arrow{
+    font-size: x-large;
+    font-weight: 800;
+    height: 60px;
+}
+
+.quote_table{
+    font-size: 18px;
+}
+
+.stockinfo_table {
+    font-family: "Helvetica Neue", Helvetica, sans-serif
+}
+
+.stockinfo_table caption {
+    text-align: left;
+    color: silver;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.stockinfo_table thead {
+    background: darkblue;
+    color: white;
+}
+
+.stockinfo_table th,
+.stockinfo_table td {
+    padding: 5px 10px;
+}
+.stockinfo_table tbody tr{
+    cursor: pointer;
+}
+.stockinfo_table tbody tr:nth-child(even) {
+    background: WhiteSmoke;
+}
+
+.stockinfo_table tbody tr td:nth-child(2) {
+    text-align:center;
+}
+
+.stockinfo_table tbody tr td:nth-child(3),
+.stockinfo_table tbody tr td:nth-child(4),
+.stockinfo_table tbody tr td:nth-child(6),
+.stockinfo_table tbody tr td:nth-child(7){
+    text-align: right;
+    font-family: monospace;
+}
+
+.stockinfo_table tfoot {
+    background: SeaGreen;
+    color: white;
+    text-align: right;
+}
+
+.stockinfo_table tfoot tr th:last-child {
+    font-family: monospace;
+}
+
+.sellcolor{
+    color:red;
+}
+.buycolor{
+    color:green;
+}
+
+.last_sellcolor{
+    color:red;
+    background-color: plum;
+}
+.last_buycolor{
+    color:green;
+    background-color: plum;
+}
+
+.buy_sell_show{
+    margin-bottom: 10px;
+    margin-top:10px;
+    font-size: large;
+}
+
+.amount_show{
+    margin-top: 10px;
+    width: 11%;
+}
+
+.amount_alert{
+    margin-top: 10px;
+}
+
+.main_font{
+    font-size: 18px;
+    color:darkblue;
+}
+.follow_btn{
+    position: absolute;
+    top: 10px;
+    left: 0px;
+}
+
+.tile_style{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 40px;
+    width: 190px;
+    font-size: 16px;
+}
+.tile_name{
+    font-size: 20px;
+    color: black;
+}
+.tile_price{
+    margin-top:-10px;
+}
+.bg_green{
+    background-color: green;
+}
+
+.bg_red{
+    background-color: red;
+}
+
+.cardClose {
+    color: indigo;
+    font-weight:bold;
+    position: absolute;
+    right: -15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    top: -5px;
+    display: block;
+}
+
+.panel-body {
+    position:relative;
+}
+.panel-body-chart{
+    height: 330px;
+}
+
+.panel-heading-button{
+    text-align: center;
+}
+.my-switch-animation.ng-enter,
+.my-switch-animation.ng-leave {
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+    position:absolute;
+}
+
+.my-switch-animation.ng-enter {
+    left:100%;
+}
+
+.my-switch-animation.ng-leave,
+.my-switch-animation.ng-enter.ng-enter-active {
+    left:0;
+}
+
+.my-switch-animation.ng-leave.ng-leave-active {
+    left:-100%;
+}
+
+.panel {
+    overflow:hidden;
+    position: relative;
+}
+
+
+.collapse-button{
+    display: none;
+}
+
+.nav-collapse .nav>li {
+    float: left;
+}
+
+.nav-collapse{
+overflow: hidden;
+height: auto;
+display: block !important;
+}
+
+.input-group{
+    width: 182px;
+    height: 34px;
+    position: absolute;
+    top:38px;
+    right:0px;
+}
+
+.float_title{
+    font-size: 15px;
+    width: 750px;
+
+    -webkit-animation-name: FloatingMove;
+    -webkit-animation-duration: 15s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: FloatingMove;
+    -moz-animation-duration: 15s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+}
+.float_title:hover{
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+}
+.float_title div{
+    margin-right: 30px;
+    display: inline-block;
+    float: left;
+}
+.float_title div:hover{
+    cursor: pointer;
+}
+@-webkit-keyframes FloatingMove{
+    from {-webkit-transform: translate(100%)}
+    to {-webkit-transform: translate(-100px)}
+}
+
+@-moz-keyframes FloatingMove{
+    from {-moz-transform: translate(100%)}
+    to {-moz-transform: translate(-100px)}
+}
+.float_title span{
+    margin: 0 2px;
+}
+
+/* ==============================
+ MEDIA QUERIES
+============================== */
+@media (max-width: 721px){
+    body{
+        font-size: 20px;
+    }
+    .container{
+        margin: 0;
+        padding: 0;
+    }
+    .panel-title{
+        font-size: 22px;
+    }
+
+    .form-control{
+        height: 39px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+
+    }
+    .panel-heading{
+        box-sizing: border-box;
+    }
+    .input-group{
+        top: 45px;
+    }
+    .glyphicon-search{
+        font-size: 20px;
+    }
+    .nav-collapse{
+        display: block;
+        height:auto;
+    }
+    .collapse-button{
+        background-color: white;
+        text-align: center;
+        display: block;
+    }
+
+    .glyphicon-align-justify{
+        background-color: white;
+        color: darkgrey;
+        font-size: 40px;
+    }
+    .nav-collapse .nav>li {
+        float: none;
+        font-size: 20px;
+    }
+
+    .nav-tabs{
+        top:1px;
+        border-style: none;
+    }
+
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        border-style: none;
+    }
+    .small-div {
+        height:0px;
+    }
+    .big-div{
+        height:auto;
+    }
+
+    .stockinfo_table th:nth-child(3),
+    .stockinfo_table th:nth-child(5),
+    .stockinfo_table th:nth-child(6),
+    .stockinfo_table tbody td:nth-child(3),
+    .stockinfo_table tbody td:nth-child(5),
+    .stockinfo_table tbody td:nth-child(6){
+        display: none;
+    }
+
+    .table th:nth-child(5),
+    .table th:nth-child(6),
+    .table td:nth-child(5),
+    .table td:nth-child(6){
+        display: none;
+    }
+
+    #stock_code{
+        display: none;
+    }
+    #stock_name{
+        width: 70%;
+        text-align: center;
+    }
+    #stock_price{
+        font-size: 30px;
+    }
+
+    .panel-body-chart img{
+        width: 100%;
+    }
+    .amount_show{
+        width: 16%;
+    }
+
+    .sell_btn_col{
+        margin-left:12%;
+    }
+    .mobile_div{
+        width: 100%;
+    }
+
+    .float_title{
+        font-size: 30px;
+        width: 1250px;
+    }
+    @-webkit-keyframes FloatingMove{
+        from {-webkit-transform: translate(500px)}
+        to {-webkit-transform: translate(-850px)}
+    }
+
+    @-moz-keyframes FloatingMove{
+        from {-moz-transform: translate(500px)}
+        to {-moz-transform: translate(-850px)}
+    }
+
+}

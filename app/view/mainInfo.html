@@ -1,0 +1,39 @@
+﻿<div class="panel-body">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <br>
+            <div class="col-xs-offset-3">
+                <span><h4>Asset Distribution</h4></span>
+            </div>
+            <canvas id="pie" class="chart chart-pie" data="chart_data" labels="chart_labels"
+                    legend="chart_legend"></canvas>
+        </div>
+
+
+        <div class="col-xs-8 col-xs-offset-1 col-md-4">
+            </br>
+            <table class="table main_font">
+                <thead>
+                <tr>
+                    <td>Principal:</td>
+                    <td>{{principal|currency:"￥"}}</td>
+                </tr>
+                <tr>
+                    <td>Market Value:</td>
+                    <td>{{marketValue|currency:"￥"}}</td>
+                </tr>
+                <tr>
+                    <td>Profits/Losses:</td>
+                    <td  ng-class="colorDisplayChoose()">{{profitLoss|customCurrency:"￥"}}</td>
+                </tr>
+                <tr>
+                    <td>Yields:</td>
+                    <td  ng-class="colorDisplayChoose()">{{yields|percentage:2}}</td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,9 @@
+{
+  "firebase": "stock-show",
+  "public": "C:\\code\\stock\\app",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

@@ -1,0 +1,24 @@
+<div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="trade in tradeList|orderBy:'trade_time':true" ng-class="rowColorChoose(trade,$first)" >
+                <td>{{trade.trade_type}}</td>
+                <td>{{trade.trade_name}}</td>
+                <td>{{trade.trade_price|currency:("￥")}}</td>
+                <td>{{trade.trade_amount}}</td>
+                <td>{{trade.trade_price*trade.trade_amount|currency:("￥")}}</td>
+                <td>{{trade.trade_time|date:'short'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

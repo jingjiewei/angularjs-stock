@@ -1,0 +1,17 @@
+app.filter('percentage', ['$filter', function ($filter) {
+    return function (input, decimals) {
+        return $filter('number')(input * 100, decimals) + '%';
+    };
+}]);
+
+app.filter('customCurrency', ["$filter", function ($filter) {
+    return function(amount, currencySymbol){
+        var currency = $filter('currency');
+
+        if(amount < 0){
+            return currency(amount, currencySymbol).replace("(", "-").replace(")", "");
+        }
+
+        return currency(amount, currencySymbol);
+    };
+}]);

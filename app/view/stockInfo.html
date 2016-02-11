@@ -1,0 +1,44 @@
+﻿<div class="panel-body">
+    <div class="rows">
+        <div>
+            <table class="stockinfo_table">
+                <caption></caption>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Buying Price</th>
+                    <th>Current Price</th>
+                    <th>Yields</th>
+                    <th>Market Value</th>
+                    <th>Profit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="stock in stocks" ng-click="stockInfoView(stock);" ng-class="colorDisplayChoose(stock)">
+                    <td><a href="#/Stock Price/{{stock.code.substring(1,stock.code.length)}}/s">{{stock
+                        .name}}</a></td>
+                    <td>{{stock.quantity}}</td>
+                    <td>{{stock.buying_price|currency:("￥")}}</td>
+                    <td>{{stock.current_price|currency:("￥")}}</td>
+                    <td nowrap>{{stock.yields|percentage:2}}</td>
+                    <td>{{stock.market_value|currency:("￥")}}</td>
+                    <td nowrap>{{stock.profit|customCurrency:("￥")}}</td>
+                </tr>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th nowrap>Total Profit</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th nowrap>{{totalProfit|customCurrency:("￥")}}</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
